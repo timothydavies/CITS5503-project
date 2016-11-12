@@ -190,8 +190,8 @@ $(".modal-footer .post-remove").click(function(){
 
 $(document).ready(function(){
 	var fullUrl = window.location.href;
-	var urlArr = url.split("/");
-	rootUrl = urlArr[0] + "//" + arr[2];
+	var urlArr = fullUrl.split("/");
+	rootUrl = urlArr[0] + "//" + urlArr[2] + "/";
 	$.get({
 		url: rootUrl + "get_users",
 		success: function (data) {

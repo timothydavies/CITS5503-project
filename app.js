@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var MongoClient = require("mongodb").MongoClient;
 var ObjectId = require("mongodb").ObjectId;
-var config = require("config.json");
+var config = require("./config.json");
 
 var app = express();
 app.use(express.static(__dirname + "/public"));
@@ -14,10 +14,11 @@ var urlencodedParser = app.use(bodyParser.urlencoded({
 MongoClient.connect(config.mongodbURL, function(err,db) {
 	if (err) return console.dir(err);
 
-	var users = db.createCollection("users", {w:1}, function(err, collection) {});
-	var posts = db.createCollection("posts", {w:1}, function(err, collection) {});
-	var users = db.collection("users", {w:1}, function(err, collection) {});
-	var posts = db.collection("posts", {w:1}, function(err, collection) {});
+	// Load or create new collections for users and posts
+	var users = db.createCollection("users", {w:1});
+	var posts = db.createCollection("posts", {w:1});
+	var users = db.collection("users", {w:1});
+	var posts = db.collection("posts", {w:1});
 
 	app.get("/", function(req, res) {
 		res.sendFile("home.html", { root: __dirname + "/public"});
@@ -71,7 +72,7 @@ MongoClient.connect(config.mongodbURL, function(err,db) {
 		var id = req.body.id;
 		var name = req.body.name;
 		// Edit the user in the mongo collection
-		users.update({_id: ObjectId(id)}, {$set:{username:name}}, {w:1}, function(err, result) {});
+		users.update({_id: ObjectId(id)}, {$set:{username:name}}, {w:1});
 		console.dir("Edited user: " + JSON.stringify(req.body));
 		// Update the client with the current user list
 		getUserList(res);
@@ -121,7 +122,7 @@ MongoClient.connect(config.mongodbURL, function(err,db) {
 		var content = req.body.content;
 		var userid = req.body.userid;
 		// Edit the post in the mongo collection
-		posts.update({_id: ObjectId(id)}, {$set:{title:title, content:content, author_id:userid}}, {w:1}, function(err, result) {});
+		posts.update({_id: ObjectId(id)}, {$set:{title:title, content:content, author_id:userid}}, {w:1});
 		console.dir("Edited user: " + JSON.stringify(req.body));
 		// Update the client with the user's posts
 		getUserPosts(res, userid);
