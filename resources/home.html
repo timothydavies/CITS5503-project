@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RemoteDojo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+	<link href="common/css/home.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="panelNavigation col-xs-12 col-md-2">
+				Current user: 
+				<select class="selectUser form-control">
+					<option value="anon">Anonymous</option>
+				</select>
+				<button class="AddUser btn btn-primary">Add User</button>
+				<button class="EditUser btn btn-primary">Edit User</button>
+				<button class="RemoveUser btn btn-danger">Delete User</button>
+				<button class="Browse btn btn-primary">Browse pages</button>
+				<button class="UserPage btn-primary">Your page</button>
+				<button class="LikeCurrentPage btn-primary">Like</button>
+				<button class="LikeCurrentUser btn-primary">Like User</button>
+				Tags for this page: 
+				<ul class="tags">
+					<li>No tags for this page!</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+<footer>
+	<!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+
+	<script src="./common/js/home.js"></script>
+</footer>
+</html>

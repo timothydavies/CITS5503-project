@@ -1,0 +1,15 @@
+.row, .container {
+	padding:0;
+	margin:0;
+	height:100%;
+}
+body {
+	height:100%;
+	background-color: #F0F0F0;
+}
+.navigation {
+	padding-left: 40px;
+	height:100%;
+	background-color: #E0E0E0;
+	border-right: 6px solid #808080;
+}

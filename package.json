@@ -1,0 +1,24 @@
+{
+  "name": "cits5503-project",
+  "version": "1.0.0",
+  "description": "Using Mongodb and Neo4j to store and analyse a simple social network",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timothydavies/CITS5503-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timothydavies/CITS5503-project/issues"
+  },
+  "homepage": "https://github.com/timothydavies/CITS5503-project#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11"
+  }
+}
