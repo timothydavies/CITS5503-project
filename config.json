@@ -1,0 +1,5 @@
+{
+	"mongodbURL" : "mongodb://localhost:27017/socialdb",
+	"serverPort"    : 3000,
+}
+ 

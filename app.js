@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var MongoClient = require("mongodb").MongoClient;
 var ObjectId = require("mongodb").ObjectId;
+var config = require("config.json");
 
 var app = express();
 app.use(express.static(__dirname + "/public"));
@@ -10,15 +11,14 @@ var urlencodedParser = app.use(bodyParser.urlencoded({
 	extended: false})
 );
 
-var mongoUrl = "mongodb://localhost:27017/socialDb";
-
-MongoClient.connect(mongoUrl, function(err,db) {
+MongoClient.connect(config.mongodbURL, function(err,db) {
 	if (err) return console.dir(err);
 
 	var users = db.createCollection("users", {w:1}, function(err, collection) {});
 	var posts = db.createCollection("posts", {w:1}, function(err, collection) {});
 	var users = db.collection("users", {w:1}, function(err, collection) {});
 	var posts = db.collection("posts", {w:1}, function(err, collection) {});
+
 	app.get("/", function(req, res) {
 		res.sendFile("home.html", { root: __dirname + "/public"});
 	});
@@ -140,7 +140,7 @@ MongoClient.connect(mongoUrl, function(err,db) {
 		getUserPosts(res, userid);
 	});
 
-	app.listen(3000, function() {
-		console.log("CITS5503 project listening on port 3000");
+	app.listen(config.serverPort, function() {
+		console.log("CITS5503 project listening on port " + config.serverPort);
 	});
 });
